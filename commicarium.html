@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Comicarium</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0b0b20;
+      color: white;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    /* ---------- HEADER ---------- */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 12px 40px;
+      background-color: #0f1230;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .logo img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ccc;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: white;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+      background-color: #1b1d3f;
+      border-radius: 20px;
+      padding: 5px 10px;
+    }
+
+    .search input {
+      background: transparent;
+      border: none;
+      color: white;
+      outline: none;
+      width: 180px;
+    }
+
+    .search button {
+      background: none;
+      border: none;
+      color: #ccc;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .profile {
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    /* ---------- CAROUSEL ---------- */
+    .carousel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0b0b20;
+      padding: 20px 0;
+      gap: 10px;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      gap: 10px;
+      padding: 10px;
+      scrollbar-width: none;
+    }
+
+    .carousel::-webkit-scrollbar {
+      display: none;
+    }
+
+    .carousel-item {
+      min-width: 120px;
+      height: 160px;
+      background-color: #ddd;
+      border-radius: 8px;
+      flex-shrink: 0;
+    }
+
+    .arrow {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    /* ---------- BOTTOM BANNER ---------- */
+    .banner {
+      height: 140px;
+      background: url('https://upload.wikimedia.org/wikipedia/commons/c/c2/Space_Nebula_2.jpg') center/cover no-repeat;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" alt="logo" />
+      comicarium
+    </div>
+    <nav>
+      <a href="#">вибране</a>
+      <a href="#">кошик</a>
+    </nav>
+    <div class="search">
+      <input type="text" placeholder="Пошук..." />
+      <button>🔍</button>
+    </div>
+    <div class="profile">👤</div>
+  </header>
+
+  <div class="carousel-container">
+    <button class="arrow" id="left">‹</button>
+    <div class="carousel" id="carousel">
+      <div class="carousel-item"></div>
+      <div class="carousel-item"></div>
+      <div class="carousel-item"></div>
+      <div class="carousel-item"></div>
+      <div class="carousel-item"></div>
+      <div class="carousel-item"></div>
+    </div>
+    <button class="arrow" id="right">›</button>
+  </div>
+
+  <div class="banner"></div>
+
+  <script>
+    const carousel = document.getElementById("carousel");
+    document.getElementById("left").onclick = () => (carousel.scrollLeft -= 150);
+    document.getElementById("right").onclick = () => (carousel.scrollLeft += 150);
+  </script>
+</body>
+</html>
